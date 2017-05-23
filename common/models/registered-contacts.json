@@ -12,7 +12,8 @@
       "id": true
     },
     "registrationDate": {
-      "type": "date"
+      "type": "date",
+      "defaultFn": "now"
     },
     "email": {
       "type": "string",
