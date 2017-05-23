@@ -34,9 +34,9 @@
   },
   "validations": [],
   "relations": {
-    "registrations": {
+    "registered": {
       "type": "hasMany",
-      "model": "registeredContacts",
+      "model": "registered",
       "foreignKey": ""
     },
     "contacts": {
