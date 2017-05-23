@@ -1,6 +1,6 @@
 {
-  "name": "events",
-  "plural": "events",
+  "name": "contacts",
+  "plural": "contacts",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,37 +11,19 @@
       "type": "number",
       "id": true
     },
-    "title": {
+    "email": {
       "type": "string",
       "required": true
     },
-    "description": {
+    "freeTextData": {
       "type": "string"
-    },
-    "startDate": {
-      "type": "date"
-    },
-    "endDate": {
-      "type": "date"
-    },
-    "place": {
-      "type": "string"
-    },
-    "eventCode": {
-      "type": "string",
-      "defaultFn": "uuidv4"
     }
   },
   "validations": [],
   "relations": {
-    "registrations": {
-      "type": "hasMany",
-      "model": "registeredContacts",
-      "foreignKey": ""
-    },
-    "contacts": {
-      "type": "hasMany",
-      "model": "contacts",
+    "events": {
+      "type": "belongsTo",
+      "model": "events",
       "foreignKey": ""
     }
   },

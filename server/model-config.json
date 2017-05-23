@@ -44,7 +44,11 @@
     "dataSource": "mysql",
     "public": true
   },
-  "registeredContacts": {
+  "registered": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "contacts": {
     "dataSource": "mysql",
     "public": true
   }

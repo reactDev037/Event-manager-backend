@@ -1,6 +1,6 @@
 {
-  "name": "registeredContacts",
-  "plural": "registeredContacts",
+  "name": "registered",
+  "plural": "registered",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
