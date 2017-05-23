@@ -1,0 +1,35 @@
+{
+  "name": "registeredContacts",
+  "plural": "registeredContacts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true
+    },
+    "registrationDate": {
+      "type": "date"
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "freeTextData": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "events": {
+      "type": "belongsTo",
+      "model": "events",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
