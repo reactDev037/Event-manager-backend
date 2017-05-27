@@ -59,9 +59,5 @@
   "templates": {
     "dataSource": "mysql",
     "public": true
-  },
-  "events_templates": {
-    "dataSource": "mysql",
-    "public": false
   }
 }
