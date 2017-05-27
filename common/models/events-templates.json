@@ -1,0 +1,37 @@
+{
+  "name": "events_templates",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true
+    },
+    "eventId": {
+      "type": "number",
+      "required": true
+    },
+    "templateId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "events": {
+      "type": "belongsTo",
+      "model": "events",
+      "foreignKey": "eventId"
+    },
+    "templates": {
+      "type": "belongsTo",
+      "model": "templates",
+      "foreignKey": "templateId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

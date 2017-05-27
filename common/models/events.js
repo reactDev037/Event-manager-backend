@@ -110,4 +110,50 @@ module.exports = function(Events) {
         }
     );
 
+ /**
+   * Search by eventdId and template code and get 1 template. Then send email based on this template.
+   *
+   * @param {Number} eventId
+   * @param {String} templateCode
+   * @callback {Function} callback
+   */
+    Events.sendEmail = function(eventId,templateCode,toRecipient,cb) {
+        //get template with templateCode and related to eventId
+        Events.find({
+            where: {id: eventId}, 
+            include: {
+                relation: 'templates',
+                scope: {
+                    fields: ['from','subject','text','html'],
+                    where: {code: templateCode, limit: 1}
+                }
+            }
+        }, function(err, instance){
+            if (err) cb(err);
+            else{
+                //Got template. Now let's prepare for mailing
+                var SResult = JSON.stringify(instance[0]);
+                var OResult = JSON.parse(SResult);
+                var OTempl = OResult.templates[0];
+                var resFrom = OTempl.from;
+                var resSubject = OTempl.subject;
+                var resText = OTempl.text;
+                var resHtml = OTempl.html;
+                
+                //SEND EMAIL!
+                Events.app.models.Email.send({
+                    to: toRecipient,
+                    from: resFrom,
+                    subject: resSubject,
+                    text: resText,
+                    html: resHtml
+                }, function(err, mail) {
+                    //console.log('email sent!');
+                    cb(err);
+                });
+
+            }
+        });
+    }
+
 };

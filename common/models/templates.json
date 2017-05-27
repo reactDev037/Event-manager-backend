@@ -1,6 +1,6 @@
 {
-  "name": "events",
-  "plural": "events",
+  "name": "templates",
+  "plural": "templates",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,42 +11,32 @@
       "type": "number",
       "id": true
     },
-    "title": {
+    "code": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "string"
-    },
-    "startDate": {
-      "type": "date"
-    },
-    "endDate": {
-      "type": "date"
-    },
-    "place": {
-      "type": "string"
-    },
-    "eventCode": {
+    "from": {
       "type": "string",
-      "defaultFn": "uuidv4"
+      "required": true
+    },
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "html": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
   "relations": {
-    "registered": {
-      "type": "hasMany",
-      "model": "registered",
-      "foreignKey": ""
-    },
-    "contacts": {
-      "type": "hasMany",
-      "model": "contacts",
-      "foreignKey": ""
-    },
-    "templates": {
-      "type": "hasMany",
-      "model": "templates"
+    "events": {
+      "type": "belongsTo",
+      "model": "events"
     }
   },
   "acls": [

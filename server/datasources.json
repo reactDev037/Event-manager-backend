@@ -12,5 +12,24 @@
     "name": "mysql",
     "user": "eventmanager",
     "connector": "mysql"
+  },
+  "mailDS": {
+    "name": "mailDS",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "authsmtp.securemail.pro",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "info@stdout.it",
+          "pass": "1cascox2"
+        }
+      }
+    ]
   }
 }
